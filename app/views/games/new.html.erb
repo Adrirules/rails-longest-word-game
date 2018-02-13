@@ -1,0 +1,19 @@
+<div class="up">
+  <h1>New game</h1>
+</div>
+<div class="letter">
+  <% 10.times do %>
+    <%= @letters.sample %>
+  <%end %>
+</div>
+
+
+<div>
+  <p>what is the longest word you can find ?</p>
+  <form action="/score" method="post">
+    <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+    <%= hidden_field_tag :answer2, @letters %>
+    <input type="text" name="answer" placeholder="your longest word here">
+    <input type="submit" value="Ask!">
+  </form>
+</div>
